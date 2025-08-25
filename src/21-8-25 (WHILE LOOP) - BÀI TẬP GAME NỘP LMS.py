@@ -5,7 +5,7 @@ while True:
     ex1 = random.randint(1,100)
     print('The computer chooses a number from 1 to 100.')
     ex1_try = 0
-    win = False
+    ex1_win = False
     while ex1_try < 5:
         ex1_guess = int(input(f'Chance {ex1_try + 1}: '))
         ex1_try += 1
@@ -17,10 +17,10 @@ while True:
         # - The user will win if they guess the number maximum five attempts.
         else:
             print('Congratulation! You are correct!')
-            win = True
+            ex1_win = True
             break
-        if not win:
-            print('You are out of chances. THe correct number is ', ex1)
+    if not ex1_win:
+        print('You are out of chances. The correct number is ', ex1)
         # - Ask the user to stop or continue playing again.
     ex1_choice = input('Do you want to play again? (y/n): ')
     if ex1_choice.lower() != 'y':
