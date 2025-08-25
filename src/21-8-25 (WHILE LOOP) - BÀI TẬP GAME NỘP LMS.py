@@ -1,31 +1,63 @@
         # 1. Guess The Number Game:
-        # - we will generate a random number with the help of randint() function from 1 to 100 and ask the user to guess it.
 import random
-while True:
-    ex1 = random.randint(1,100)
-    print('The computer chooses a number from 1 to 100.')
-    ex1_try = 0
-    ex1_win = False
-    while ex1_try < 5:
-        ex1_guess = int(input(f'Chance {ex1_try + 1}: '))
-        ex1_try += 1
-        # - After every guess, the user will be told if the number is above or below the randomly generated number.
-        if ex1_guess < ex1:
-            print('Your guessing number is smaller than mine.')
-        elif ex1_guess > ex1:
-            print('Your guessing number is bigger than mine.')
-        # - The user will win if they guess the number maximum five attempts.
+ex1_money = 100
+ex1_win = 0
+ex1_lose = 0
+
+print('Bạn có 100$, mỗi ván tốn 5$.')
+
+while ex1_money >=5:
+    print('\nChọn level: ')
+    print('1. Hard (3 lần đoán)')
+    print('2. Medium (6 lần đoán)')
+    print('3. Easy (10 lần đoán)')
+    ex1_choice = input('Level (1/2/3): ')
+
+    if ex1_choice == '1':
+        ex1_attempt_allowed = 3
+    elif ex1_choice == '2':
+        ex1_attempt_allowed = 6
+    else:
+        ex1_attempt_allowed = 10
+
+    ex1_money -= 5
+    ex1_num = random.randint(1,100)
+    print('\nMáy đã chọn số từ 1 đến 100.')
+    ex1_attempt = 0
+    ex1_win_etc = False
+
+    while ex1_attempt < ex1_attempt_allowed:
+        ex1_guess = int(input(f'Đoán lần {ex1_attempt + 1 }: '))
+        ex1_attempt += 1
+
+        if ex1_guess < ex1_num:
+            print('Số bạn đoán nhỏ hơn của tôi.')
+        elif ex1_guess > ex1_num:
+            print('Số bạn đoán lớn hơn của tôi.')
         else:
-            print('Congratulation! You are correct!')
-            ex1_win = True
+            print('Bạn đoán đúng.')
+            ex1_win += 1
+            ex1_win_etc = True
             break
-    if not ex1_win:
-        print('You are out of chances. The correct number is ', ex1)
-        # - Ask the user to stop or continue playing again.
-    ex1_choice = input('Do you want to play again? (y/n): ')
-    if ex1_choice.lower() != 'y':
-        print('Thank you for playing.')
+
+    if not ex1_win_etc:
+        print(f'Bạn đã thua. Số đúng là {ex1_num}.')
+        ex1_lose += 1
+
+    print(f'Số tiền còn lại là: ${ex1_money}.')
+
+    if ex1_money < 5:
+        print('\nBạn không còn đủ tiền để chơi tiếp.')
         break
+
+    ex1_play_again = input('Chơi tiếp ván mới? (y/n): ')
+    if ex1_play_again.lower() != 'y':
+        break
+
+print('\nThống kê kết quả:')
+print(f'Thắng: {ex1_win}')
+print(f'Thắng: {ex1_lose}')
+print(f'Số tiền còn lại: {ex1_money}')
 
         # 2. Write a game that simulate rolling a pair of dice.
 import random
