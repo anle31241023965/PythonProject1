@@ -1,31 +1,31 @@
         # 1. Guess The Number Game:
         # - we will generate a random number with the help of randint() function from 1 to 100 and ask the user to guess it.
-# import random
-# while True:
-#     ex1 = random.randint(1,100)
-#     print('The computer chooses a number from 1 to 100.')
-#     ex1_try = 0
-#     win = False
-#     while ex1_try < 5:
-#         ex1_guess = int(input(f'Chance {ex1_try + 1}: '))
-#         ex1_try += 1
-#         # - After every guess, the user will be told if the number is above or below the randomly generated number.
-#         if ex1_guess < ex1:
-#             print('Your guessing number is smaller than mine.')
-#         elif ex1_guess > ex1:
-#             print('Your guessing number is bigger than mine.')
-#         # - The user will win if they guess the number maximum five attempts.
-#         else:
-#             print('Congratulation! You are correct!')
-#             win = True
-#             break
-#         if not win:
-#             print('You are out of chances. THe correct number is ', ex1)
-#         # - Ask the user to stop or continue playing again.
-#     ex1_choice = input('Do you want to play again? (y/n): ')
-#     if ex1_choice.lower() != 'y':
-#         print('Thank you for playing.')
-#         break
+import random
+while True:
+    ex1 = random.randint(1,100)
+    print('The computer chooses a number from 1 to 100.')
+    ex1_try = 0
+    win = False
+    while ex1_try < 5:
+        ex1_guess = int(input(f'Chance {ex1_try + 1}: '))
+        ex1_try += 1
+        # - After every guess, the user will be told if the number is above or below the randomly generated number.
+        if ex1_guess < ex1:
+            print('Your guessing number is smaller than mine.')
+        elif ex1_guess > ex1:
+            print('Your guessing number is bigger than mine.')
+        # - The user will win if they guess the number maximum five attempts.
+        else:
+            print('Congratulation! You are correct!')
+            win = True
+            break
+        if not win:
+            print('You are out of chances. THe correct number is ', ex1)
+        # - Ask the user to stop or continue playing again.
+    ex1_choice = input('Do you want to play again? (y/n): ')
+    if ex1_choice.lower() != 'y':
+        print('Thank you for playing.')
+        break
 
         # 2. Write a game that simulate rolling a pair of dice.
 import random
