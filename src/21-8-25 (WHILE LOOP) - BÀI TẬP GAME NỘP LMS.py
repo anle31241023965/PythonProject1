@@ -85,9 +85,12 @@ while True:
         print('Cảm ơn đã chơi.')
         break
 
+
         # - **** Extend the game by asking the user to enter an amount of money, then continue playing until the user runs out of money or the user stops playing. Statistics of results.
 import random
 money = int(input('Type your money: '))
+ex2_win = 0
+ex2_lose = 0
 
 while money > 0:
     print(f'\nBạn đang có {money} VNĐ.')
@@ -112,9 +115,11 @@ while money > 0:
     if guess == result:
         print('Bạn thắng.')
         money += bet
+        ex2_win += 1
     else:
         print('Bạn thua.')
         money -= bet
+        ex2_lose += 1
 
     if money <= 0:
         print('Bạn đã hết tiền. Trò chơi kết thúc.')
@@ -124,3 +129,7 @@ while money > 0:
     if choice.lower() != 'y':
         break
 
+print('\nThống kê kết quả:')
+print(f'Thắng: {ex2_win}')
+print(f'Thắng: {ex2_lose}')
+print(f'Số tiền còn lại: {money}')
